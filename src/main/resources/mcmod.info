@@ -1,0 +1,15 @@
+[
+{
+    "modid": "foodsabo",
+    "name": "Food Sabotage",
+    "description": "A minecraft mod to poison food.",
+    "version": "1.0",
+    "mcversion": "1.11.2",
+    "url": "",
+    "authorList": ["Harry9137", "The_Last_Dovahkiin"],
+    "credits": "Idea from The_Last_Dovahkiin, made by Harry9137",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+}
+]

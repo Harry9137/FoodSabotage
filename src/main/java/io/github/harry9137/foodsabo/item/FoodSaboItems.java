@@ -1,5 +1,6 @@
 package io.github.harry9137.foodsabo.item;
 
+import io.github.harry9137.foodsabo.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -20,6 +21,7 @@ public class FoodSaboItems {
 
     public static void registerRenderers(){
         registerRender(cyanidePowder);
+        registerRender(poisonSac);
     }
 
     private static void registerRender(Item item){

@@ -4,12 +4,13 @@ import io.github.harry9137.foodsabo.item.ItemCyanidePowder;
 import io.github.harry9137.foodsabo.item.ItemPoisonSac;
 import io.github.harry9137.foodsabo.item.PoisonItem;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
 public enum FoodEffect {
-    CYANIDE (new ItemCyanidePowder().getRegistryName().toString(), new PotionEffect(Potion.getPotionById(20), Reference.FOOD_DURATION, 2), new PotionEffect(Potion.getPotionById(9), Reference.FOOD_DURATION, 1), new PotionEffect(Potion.getPotionById(17), Reference.FOOD_DURATION)),
-    PUFFERFISH (new ItemPoisonSac().getRegistryName().toString(), new PotionEffect(Potion.getPotionById(18), Reference.FOOD_DURATION, 2), new PotionEffect(Potion.getPotionById(9), Reference.FOOD_DURATION, 1), new PotionEffect(Potion.getPotionById(17), Reference.FOOD_DURATION, 1), new PotionEffect(Potion.getPotionById(20), Reference.FOOD_DURATION, 3));
+    CYANIDE ("foodsabo:cyanide_powder", makeEffect(20, 2), makeEffect(9, 1), makeEffect(17, 1)),
+    PUFFERFISH ("foodsabo:poison_sac", makeEffect(18, 2), makeEffect(9, 1), makeEffect(17, 1), makeEffect(20, 3));
 
     private PotionEffect[] effects;
 
@@ -21,8 +22,14 @@ public enum FoodEffect {
     }
 
     public void apply(EntityLivingBase living){
-        for(PotionEffect effect : effects){
-            living.addPotionEffect(effect);
+        for(int i = 0; i < effects.length; i++){
+            living.addPotionEffect(effects[i]);
+        }
+    }
+
+    public void apply(EntityPlayer player){
+        for(int i = 0; i < effects.length; i++){
+            player.addPotionEffect(effects[i]);
         }
     }
 
@@ -36,5 +43,9 @@ public enum FoodEffect {
 
     public String getAffectedItem() {
         return affectedItem;
+    }
+
+    private static PotionEffect makeEffect(int id, int strength){
+        return new PotionEffect(Potion.getPotionById(id), Reference.FOOD_DURATION, strength, false, true);
     }
 }
