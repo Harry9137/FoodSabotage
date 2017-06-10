@@ -1,2 +1,11 @@
-item.foodsabo:cyanide_powder.name=Cyanide Powder
+item.foodsabo:cyanide_powder.name=Pile of Cyanide Powder
 item.foodsabo:poison_sac.name=Poison Sac
+item.foodsabo:apple_seed.name=Apple Seed
+item.foodsabo:carving_tools.name=Carving Tools
+item.foodsabo:ground_seed.name=Ground Seed
+item.foodsabo:mortar_pestle.name=Mortar and Pestle
+item.foodsabo:tiny_cyanide.name=Tiny Pile of Cyanide Powder
+item.foodsabo:venom_droplet.name=Droplet of Venom
+item.foodsabo:venom_bottle.name=Bottle of Venom
+
+itemgroup.foodsabo:foodsabo.name=Food Sabotage

@@ -2,8 +2,10 @@ package io.github.harry9137.foodsabo;
 
 import io.github.harry9137.foodsabo.handlers.CraftingHandler;
 import io.github.harry9137.foodsabo.handlers.EventHandler;
-import io.github.harry9137.foodsabo.item.FoodSaboItems;
+import io.github.harry9137.foodsabo.registry.FoodSaboCrafting;
+import io.github.harry9137.foodsabo.registry.FoodSaboItems;
 import io.github.harry9137.foodsabo.proxy.CommonProxy;
+import io.github.harry9137.foodsabo.registry.FoodSaboTab;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -24,6 +26,8 @@ public class FoodSabo {
     public void preInit(FMLPreInitializationEvent event){
         proxy.preInit(event);
 
+        FoodSaboTab.init();
+
         FoodSaboItems.registerItems();
 
         MinecraftForge.EVENT_BUS.register(new EventHandler());
@@ -42,6 +46,6 @@ public class FoodSabo {
 
         //teInstalled = Loader.isModLoaded("ThermalExpansion");
 
-        GameRegistry.addRecipe(new CraftingHandler());
+        FoodSaboCrafting.registerRecipies();
     }
 }

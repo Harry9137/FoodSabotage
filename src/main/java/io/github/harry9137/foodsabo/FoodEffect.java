@@ -1,8 +1,6 @@
 package io.github.harry9137.foodsabo;
 
-import io.github.harry9137.foodsabo.item.ItemCyanidePowder;
-import io.github.harry9137.foodsabo.item.ItemPoisonSac;
-import io.github.harry9137.foodsabo.item.PoisonItem;
+import io.github.harry9137.foodsabo.item.FoodSaboItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
@@ -10,7 +8,7 @@ import net.minecraft.potion.PotionEffect;
 
 public enum FoodEffect {
     CYANIDE ("foodsabo:cyanide_powder", makeEffect(20, 2), makeEffect(9, 1), makeEffect(17, 1)),
-    PUFFERFISH ("foodsabo:poison_sac", makeEffect(18, 2), makeEffect(9, 1), makeEffect(17, 1), makeEffect(20, 3));
+    PUFFERFISH ("foodsabo:venom_bottle", makeEffect(18, 2), makeEffect(9, 1), makeEffect(17, 1), makeEffect(20, 3));
 
     private PotionEffect[] effects;
 
@@ -33,7 +31,7 @@ public enum FoodEffect {
         }
     }
 
-    public static FoodEffect getFromItem(PoisonItem item){
+    public static FoodEffect getFromItem(FoodSaboItem item){
         for(FoodEffect effect : FoodEffect.values())
             if(effect.affectedItem.equalsIgnoreCase(item.getRegistryName().toString()))
                 return effect;

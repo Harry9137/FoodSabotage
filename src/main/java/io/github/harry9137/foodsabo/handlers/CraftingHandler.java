@@ -1,7 +1,8 @@
 package io.github.harry9137.foodsabo.handlers;
 
 import io.github.harry9137.foodsabo.FoodEffect;
-import io.github.harry9137.foodsabo.item.PoisonItem;
+import io.github.harry9137.foodsabo.item.FoodSaboItem;
+import io.github.harry9137.foodsabo.item.IPoisonItem;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -19,20 +20,20 @@ public class CraftingHandler implements IRecipe {
             //System.out.println("Err: Item " + inv.getStackInSlot(4).getItem().getRegistryName().toString() + " in slot 4 was not an instance of ItemFood");
             return false;
         }
-        if(!(inv.getStackInSlot(1).getItem() instanceof PoisonItem)){
-            //System.out.println("Err: Item " + inv.getStackInSlot(1).getItem().getRegistryName().toString() + " in slot 1 was not an instance of PoisonItem");
+        if(!(inv.getStackInSlot(1).getItem() instanceof IPoisonItem)){
+            //System.out.println("Err: Item " + inv.getStackInSlot(1).getItem().getRegistryName().toString() + " in slot 1 was not an instance of IPoisonItem");
             return false;
         }
-        if(!(inv.getStackInSlot(3).getItem() instanceof PoisonItem)){
-            //System.out.println("Err: Item " + inv.getStackInSlot(3).getItem().getRegistryName().toString() + " in slot 3 was not an instance of PoisonItem");
+        if(!(inv.getStackInSlot(3).getItem() instanceof IPoisonItem)){
+            //System.out.println("Err: Item " + inv.getStackInSlot(3).getItem().getRegistryName().toString() + " in slot 3 was not an instance of IPoisonItem");
             return false;
         }
-        if(!(inv.getStackInSlot(5).getItem() instanceof PoisonItem)){
-            //System.out.println("Err: Item " + inv.getStackInSlot(5).getItem().getRegistryName().toString() + " in slot 5 was not an instance of PoisonItem");
+        if(!(inv.getStackInSlot(5).getItem() instanceof IPoisonItem)){
+            //System.out.println("Err: Item " + inv.getStackInSlot(5).getItem().getRegistryName().toString() + " in slot 5 was not an instance of IPoisonItem");
             return false;
         }
-        if(!(inv.getStackInSlot(7).getItem() instanceof PoisonItem)){
-            //System.out.println("Err: Item " + inv.getStackInSlot(7).getItem().getRegistryName().toString() + " in slot 7 was not an instance of PoisonItem");
+        if(!(inv.getStackInSlot(7).getItem() instanceof IPoisonItem)){
+            //System.out.println("Err: Item " + inv.getStackInSlot(7).getItem().getRegistryName().toString() + " in slot 7 was not an instance of IPoisonItem");
             return false;
         }
 
@@ -43,7 +44,7 @@ public class CraftingHandler implements IRecipe {
     public ItemStack getCraftingResult(InventoryCrafting inv) {
         ItemStack itemStack = new ItemStack(inv.getStackInSlot(4).getItem());
         itemStack.setTagCompound(new NBTTagCompound());
-        itemStack.getTagCompound().setString("effect", FoodEffect.getFromItem((PoisonItem) inv.getStackInSlot(1).getItem()).name());
+        itemStack.getTagCompound().setString("effect", FoodEffect.getFromItem((FoodSaboItem) inv.getStackInSlot(1).getItem()).name());
         return itemStack;
     }
 

@@ -1,6 +1,6 @@
 package io.github.harry9137.foodsabo.proxy;
 
-import io.github.harry9137.foodsabo.item.FoodSaboItems;
+import io.github.harry9137.foodsabo.registry.FoodSaboItems;
 import net.minecraftforge.fml.common.event.*;
 
 public class ClientProxy extends CommonProxy {
